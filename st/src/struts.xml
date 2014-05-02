@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="board" extends="struts-default">
+		<!-- 패키지이름이 board이다. extends 속성은 상속을 받는 다는 뜻. struts-default.xml로 부터 상속을 
+			받는다. -->
+
+		<!-- 스트럿츠 게시판 글쓰기 폼 액션 작성 -->
+		<action name="board_write" class="action.WriteAction" method="form">
+		<!-- 웹주소창에서 http://127.0.0.1:포트번호/st/board_write.action
+		    라고 입력하면 action패키지의 WriteAction컨트롤 클래스가 실행됨.
+		    WriteAction 컨트롤 클래스에 method속성에서 지정한 form()메서들를
+		    정의하면 호출된다. method속성을 지정하지 않으면
+		    execute()메서드를 기본값으로 호출한다.
+		    form()메서드내에서 리절트 코드 문자열 상수값 SUCCESS를 반환하면 
+		    struts.xml에서 받아서 jsp/board폴더의 board_write.jsp뷰페이지가 실행되는
+		    구조이다. -->
+			<result name="success">
+				/jsp/board/board_write.jsp
+			</result>
+		</action>
+	</package>
+</struts>

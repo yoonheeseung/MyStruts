@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>st</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- 스트럿츠 2 개발환경 -->
+  <filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+		<init-param>
+			<param-name>struts.i18n.encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+<!-- method=get or post방식으로 넘어오는 한글자료를 서버에서 받을 때 안깨지게 해 줌.
+     언어 코딩 타입 설정 부분 -->
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+<!-- 스트럿츠2 웹에서 인식하는 기본확장자가 *.action이다.
+     그러므로 /*로 하면 웹주소에서 인식하는 확장자는 .action이다 
+     스트럿츠 프레임웍에서는 컨트롤 역할을 하는 struts.xml 
+      파일이 필요하다. 이 파일을 struts-default.xml로 부터
+      상속을 받아서 처리된다.
+      struts.xml파일 위치는 src이다. 즉, 원본파일이 있는 src
+      의 struts.xml을 수정하면 컴파일 되어져서 build/classes
+      경로에 동일한 struts.xml이 만들어 진다.
+      이 파일을 읽어서 실행된다.
+     -->
+</web-app>
