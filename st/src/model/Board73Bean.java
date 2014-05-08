@@ -2,11 +2,17 @@ package model;
 
 public class Board73Bean {
 
-	/*
-	 * 데이터베이스 연동 ORM ibatis를 사용하려면
-	 *  반드시 테이블 필드명과 변수명이 같아야 한다.
-	 *  다르면 1:1 매핑이 안되서 에러가
-	 * 발생한다.
+	/* struts 프레임웍과 ibatis를 사용할 때 반드시 지켜야할 규칙
+	 * 1. board_write.jsp의 파라미터이름과 
+	 *    Board73Bean.java의 Bean클래스의 변수명이 같아야 한다.
+	 * 
+	 * 2. 데이터베이스 연동 ORM ibatis를 사용하려면
+	 *    반드시 테이블 필드명과 변수명이 같아야 한다.
+	 *    다르면 1:1 매핑이 안되서 에러가
+	 *    발생한다.
+	 * 
+	 * 3. 테이블 필드명 자료형과 변수 자료형이 같아야 한다.
+	 * 
 	 */
 
 	private int board_no;

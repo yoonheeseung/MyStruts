@@ -12,3 +12,5 @@ create sequence board73_no_seq
 increment by 1 start with 1 nocache;
 
 select * from board73 order by board_no desc;
+
+desc board73;

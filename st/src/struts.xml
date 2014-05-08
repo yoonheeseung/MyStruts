@@ -4,24 +4,42 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-
 	<package name="board" extends="struts-default">
 		<!-- 패키지이름이 board이다. extends 속성은 상속을 받는 다는 뜻. struts-default.xml로 부터 상속을 
 			받는다. -->
 
 		<!-- 스트럿츠 게시판 글쓰기 폼 액션 작성 -->
 		<action name="board_write" class="action.WriteAction" method="form">
-		<!-- 웹주소창에서 http://127.0.0.1:포트번호/st/board_write.action
-		    라고 입력하면 action패키지의 WriteAction컨트롤 클래스가 실행됨.
-		    WriteAction 컨트롤 클래스에 method속성에서 지정한 form()메서들를
-		    정의하면 호출된다. method속성을 지정하지 않으면
-		    execute()메서드를 기본값으로 호출한다.
-		    form()메서드내에서 리절트 코드 문자열 상수값 SUCCESS를 반환하면 
-		    struts.xml에서 받아서 jsp/board폴더의 board_write.jsp뷰페이지가 실행되는
-		    구조이다. -->
+			<!-- 웹주소창에서 http://127.0.0.1:포트번호/st/board_write.action 라고 입력하면 action패키지의 
+				WriteAction컨트롤 클래스가 실행됨. WriteAction 컨트롤 클래스에 method속성에서 지정한 form()메서드를 정의하면 
+				호출된다. method속성을 지정하지 않으면 execute()메서드를 기본값으로 호출한다. form()메서드내에서 리절트 코드 문자열 
+				상수값 SUCCESS를 반환하면 struts.xml에서 받아서 jsp/board폴더의 board_write.jsp뷰페이지가 실행되는 
+				구조이다. -->
 			<result name="success">
 				/jsp/board/board_write.jsp
 			</result>
 		</action>
+
+		<!-- 게시판 저장액션 -->
+		<action name="board_write_ok" class="action.WriteAction">
+			<!-- 웹주소창에서 http://127.0.0.1:포트번호/st/board_write_ok.action이 실행되면 action패키지의 
+				WriteAction컨트롤 클래스가 실행. method속성을 지정하지 않았기 때문에 기본으로 execute()메서드를 호출한다. -->
+			<result type="redirectAction">
+				<param name="actionName">listAction</param>
+				<!-- 리다이렉트 액션을 걸어주면 액션네임에 지정된 listAction을 호출. -->
+			</result>
+		</action>
+
+		<!-- 게시판 목록 액션 -->
+		<action name="listAction" class="action.ListAction">
+			<!-- 웹 주소창에 http://127.0.0.1:포트번호/st/listAction.action 이 실행되면 action패키지의 
+				ListAction컨트롤 클래스를 호출한다. ListAction컨트롤 클래스의 execute()메서드를 호출한다. 반환 리절트 코드 
+				문자열을 success를 반환해서 jsp/board폴더의 board_list.jsp 뷰 페이지가 실행된다. -->
+			<result name="success">
+				/jsp/board/board_list.jsp
+			</result>
+		</action>
+
 	</package>
 </struts>
+
