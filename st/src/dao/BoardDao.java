@@ -5,8 +5,6 @@ import ibatis.SqlMapLocator;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.ibatis.sqlmap.engine.builder.xml.SqlMapParser;
-
 import model.Board73Bean;
 
 public class BoardDao {
@@ -49,6 +47,17 @@ public class BoardDao {
 		
 		return SqlMapLocator.getMapper().queryForList("blist");
 	}//전체목록
+
+	public void updateHit(int num) throws SQLException {
+		SqlMapLocator.getMapper().update("bhit",num);
+		//bhit는 update 아이디 이름
+	}//조회수 증가
+
+	public Board73Bean getCont(int num) throws SQLException {
+	    return (Board73Bean) SqlMapLocator.getMapper().queryForObject("bcont", num);
+	    //bcont는 Board.xml의 select 아이디 이름이다.
+	}//내용보기
+	
 	
 	
 }

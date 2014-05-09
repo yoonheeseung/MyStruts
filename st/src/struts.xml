@@ -40,6 +40,30 @@
 			</result>
 		</action>
 
+          <!-- 내용보기 액션 -->
+          <action name="board_cont" class="action.ViewAction">
+          <result name="success">
+           /jsp/board/board_cont.jsp
+          </result>
+          </action>
+          
+          <!-- 비번 체크 액션 -->
+          <action name="checkFormAction" class="action.ViewAction" method="checkForm">
+          <result name="success">
+          /jsp/board/check_pwd.jsp
+          </result>
+          </action>
+          
+          <!-- 비번 체크 완료 액션 -->
+          <action name="checkAction" class="action.ViewAction" method="checkAction">
+          <result name="success">
+          /jsp/board/check_ok.jsp
+          </result>
+          <result name="error">
+          <!-- error는 비밀번호가 다른 경우 -->
+          /jsp/board/check_error.jsp
+          </result>
+          </action>
 	</package>
 </struts>
 

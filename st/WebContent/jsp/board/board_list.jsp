@@ -27,7 +27,7 @@
 			<%-- 스트럿츠2 태그로서 목록갯수만큼 반복자를 구해서 반복  --%>
 			<tr>
 				<th><s:property value="board_no" /></th>
-				<th><a href="board_cont.action?num=<s:property value="board_no" />'">
+				<th><a href="board_cont.action?num=<s:property value="board_no" />">
 				 <s:property value="board_title" /></a>
 				 </th>
 				<th><s:property value="board_name" /></th>
